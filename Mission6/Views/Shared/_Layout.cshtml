@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    @* Setting title *@
+    <title>@ViewData["Title"]</title>
+
+</head>
+<body>
+    @* Creating nav bar *@
+    <nav>
+        <a asp-controller="Home" asp-action="Index">Overview</a> |
+        <a asp-controller="Home" asp-action="NewMovies">New Entry</a> |
+        <a asp-controller="Home" asp-action="Podcasts">My Podcasts</a>
+    </nav>
+    @* Rendering body *@
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>
