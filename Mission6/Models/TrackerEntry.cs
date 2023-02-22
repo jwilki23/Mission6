@@ -12,8 +12,10 @@ namespace Mission6.Models
         [Key]
         [Required]
         public int EntryID { get; set; }
+        //build foreign key relationship
         [Required]
-        public string Category { get; set; }
+        public int CategoryId { get; set; }
+        public Category Category { get; set; }
         [Required]
         public string Title { get; set; }
         [Required]
@@ -26,7 +28,6 @@ namespace Mission6.Models
         public string LentTo { get; set; }
         [MaxLength(25)]
         public string Notes { get; set; }
-
 
     }
 }

@@ -27,7 +27,7 @@ namespace Mission6
         {
             services.AddControllersWithViews();
 
-            object p = services.AddDbContext<MovieInfoContext>(options =>
+            services.AddDbContext<MovieInfoContext>(options =>
             {
                 options.UseSqlite(Configuration["ConnectionStrings:BlahConnection"]);
             });

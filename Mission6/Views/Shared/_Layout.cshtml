@@ -5,12 +5,15 @@
     <meta name="viewport" content="width=device-width" />
     @* Setting title *@
     <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
 
 </head>
 <body>
     @* Creating nav bar *@
     <nav>
         <a asp-controller="Home" asp-action="Index">Overview</a> |
+        <a asp-controller="Home" asp-action="Collection">My Collection</a> |
         <a asp-controller="Home" asp-action="NewMovies">New Entry</a> |
         <a asp-controller="Home" asp-action="Podcasts">My Podcasts</a>
     </nav>

@@ -1,20 +1,25 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
     //Setting title
     ViewData["Title"] = "New Movies";
 }
 @* bringing in models *@
 @model Mission6.Models.TrackerEntry
 <body>
-    <h1>Add a new movie to my collection!</h1>
+    <h1>Add/Edit a movie in my collection!</h1>
     <div>
         @* form to collect data about new movies *@
         <form method="post">
-
-            <label asp-for="Category">Category:</label>
-            <input asp-for="Category" /><br />
+            <div asp-validation-summary="All"></div>
+            @*Using category id's to link each category name to the movie.*@
+            <label asp-for="CategoryId">Category:</label>
+            <select asp-for="CategoryId">
+                <option value="">Select a Category</option>
+            @*using razor code to dynamically populate the dropdown menu of the categories.*@
+                @foreach (Category c in ViewBag.Categories)
+                {
+                    <option value="@c.CategoryId">@c.CategoryName</option>
+                }
+            </select><br />
 
             <label asp-for="Title">Title:</label>
             <input asp-for="Title" /><br />

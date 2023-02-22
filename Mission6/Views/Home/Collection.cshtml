@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Movie Collection";
+}
+
+@model List<TrackerEntry>
+
+    @*Creating a table to display movie collection*@
+    <table class="table table-bordered table-striped">
+        <thead class="font-weight-bold">
+            <tr>
+                <td>Category</td>
+                <td>Title</td>
+                <td>Year</td>
+                <td>Director</td>
+                <td>Rating</td>
+                <td>Edited</td>
+                <td>Lent to</td>
+                <td>Notes</td>
+            </tr>
+        </thead>
+        <tbody>
+            @*Using razor code to dynamically populate the rows of the table with correct information*@
+            @foreach (var x in Model)
+            {
+                <tr>
+                    <td>@x.Category.CategoryName</td>
+                    <td>@x.Title</td>
+                    <td>@x.Year</td>
+                    <td>@x.Director</td>
+                    <td>@x.Rating</td>
+                    <td>@x.Edited</td>
+                    <td>@x.LentTo</td>
+                    <td>@x.Notes</td>
+                    @*Adding edit and delete buttons that are linked to each entry by their id's*@
+                    <td><a asp-controller="Home" asp-action="Edit" asp-route-entryid="@x.EntryID">Edit</a></td>
+                    <td><a asp-controller="Home" asp-action="Delete" asp-route-entryid="@x.EntryID">Delete</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
