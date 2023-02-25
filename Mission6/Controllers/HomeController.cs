@@ -84,7 +84,7 @@ namespace Mission6.Controllers
             //method to add and save changes to entry if valid data is entered
             if (ModelState.IsValid)
             {
-                movieContext.Add(blah);
+                movieContext.Update(blah);
                 movieContext.SaveChanges();
                 return View("Confirmation", blah);
             }
